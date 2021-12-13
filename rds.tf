@@ -10,7 +10,7 @@ resource "aws_db_instance" "default" {
   port                 = "3306"
   db_subnet_group_name = aws_db_subnet_group.gokul_db_subnet_group_terraform.name
   skip_final_snapshot  = true
-  vpc_security_group_ids = [aws_security_group.gokul_aws_security_group_terraform.id]
+  vpc_security_group_ids = [aws_security_group.gokul_aws_rds_sg_terraform.id]
 }
 
 resource "aws_db_subnet_group" "gokul_db_subnet_group_terraform" {

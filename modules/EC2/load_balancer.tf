@@ -3,7 +3,6 @@ resource "aws_lb" "gokul-load-balancer-terraform" {
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.gokul-sg-terraform.id]
-    #[for sub in aws_subnet.vishal-tf-public-sub[*].id : sub]
 
   subnets = [for sub in aws_subnet.gokul_public_subnet[*].id : sub]
   enable_deletion_protection = true

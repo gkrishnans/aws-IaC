@@ -4,7 +4,8 @@
 
 
 resource "aws_vpc" "gokul_vpc_terraform" {
-  cidr_block = "108.0.0.0/16"
+  cidr_block = var.vpc_cidr
+  instance_tenancy = "default"
   tags = {
     Name = "gokul_vpc_terraform"
   }

@@ -1,19 +1,7 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 3.27"
-    }
-  }
-
-  required_version = ">= 0.14.9"
+module "VPC" {
+  source = "./modules/vpc"
 }
 
-
-provider "aws" {
-  profile = "default"
-  region  = "us-east-1"
+module "EC2" {
+  source = "./modules/EC2"
 }
-
-
-

@@ -19,9 +19,6 @@ variable "azs_public" {
 	default = ["us-east-1c", "us-east-1d"]
 }
 
-
-
-
 variable "instance_ami" {
   default = "ami-0ed9277fb7eb570c9"
 }
