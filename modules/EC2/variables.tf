@@ -15,3 +15,24 @@ variable "instance_type" {
 variable "instance_key" {
   default = "gk-presidioKey"
 }
+
+variable "vpc_cidr_block" {
+  type = string
+}
+
+variable "public-subnets" {
+  type = list
+}
+
+variable "private-subnets" {
+  type = list
+}
+
+variable "vpc_id" {
+  type = string
+}
+
+variable "sg-terraform" {
+  type = list
+}
+

@@ -1,7 +1,7 @@
 resource "aws_security_group" "gokul-sg-terraform" {
   name        = "gokul-sg-terraform-ec2sg"
   description = "Allow TLS inbound traffic"
-  vpc_id      = aws_vpc.gokul_vpc_terraform.id
+  vpc_id      =  module.VPC.vpc_id
   ingress {
     description = "TLS from VPC"
     from_port   = 443
@@ -34,17 +34,16 @@ resource "aws_security_group" "gokul-sg-terraform" {
   }
 }
 
-
 resource "aws_security_group" "gokul_aws_rds_sg_terraform" {
   name        = "gokul_aws_rds_sg_terraform"
   description = "Allow TLS inbound traffic"
-  vpc_id      = aws_vpc.gokul_vpc_terraform.id
+  vpc_id      = module.VPC.vpc_id
   ingress {
     description = "TLS from VPC"
     from_port   = 3306
     to_port     = 3306
     protocol    = "tcp"
-    cidr_blocks = [aws_vpc.gokul_vpc_terraform.cidr_block]
+    cidr_blocks = module.VPC.vpc_cidr_block
   }
   egress {
     from_port   = 0

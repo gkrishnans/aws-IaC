@@ -2,22 +2,26 @@ resource "aws_lb" "gokul-load-balancer-terraform" {
   name               = "gokul-load-balancer-terraform"
   internal           = false
   load_balancer_type = "application"
-  security_groups    = [aws_security_group.gokul-sg-terraform.id]
-
-  subnets = [for sub in aws_subnet.gokul_public_subnet[*].id : sub]
-  enable_deletion_protection = true
+  security_groups    = var.sg-terraform
+  subnets = [for sub in var.public-subnets : sub]
+  enable_deletion_protection = false
   tags = {
     Name = "gokul-load-balancer-terraform"
     createdby = "gs@presidio.com"
   }
 }
 
+
+
+
+
+
 resource "aws_lb_target_group" "gokul-target-group-terraform" {
   name     = "gokul-target-group-terraform"
   port     = 80
   protocol = "HTTP"
   target_type = "instance"
-  vpc_id   = aws_vpc.gokul_vpc_terraform.id
+  vpc_id   = var.vpc_id
 }
 
 resource "aws_lb_target_group_attachment" "gokul__lb_target_group_attachment_terraform" {
