@@ -29,3 +29,5 @@ output "public_ip_address" {
 output "loadbalancer-dns-name" {
   value = module.EC2.loadbalancer-dns-name
 }
+
+
