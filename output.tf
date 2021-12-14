@@ -22,12 +22,14 @@ output "sg-terraform" {
 }
 
 
-output "public_ip_address" {
-    value = module.EC2.public_ip_address
-}
-
+//output "public_ip_address" {
+//    value = module.EC2.public_ip_address
+//}
+//
 output "loadbalancer-dns-name" {
   value = module.EC2.loadbalancer-dns-name
 }
 
-
+output "rds-instance" {
+  value = module.RDS.rds-instance
+}

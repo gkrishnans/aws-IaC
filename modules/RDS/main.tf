@@ -15,8 +15,38 @@ resource "aws_db_instance" "default" {
 
 resource "aws_db_subnet_group" "gokul_db_subnet_group_terraform" {
   name       = "gokul_db_subnet_group_terraform"
-  subnet_ids = [for sub in aws_subnet.gokul_private_subnet[*].id:sub]
+  subnet_ids = var.private-subnets
   tags = {
     Name = "gokul_db_subnet_group_terraform"
   }
 }
+
+
+
+resource "aws_security_group" "gokul_aws_security_group_terraform" {
+  name        = "gokul_aws_security_group_terraform"
+  description = "Allow TLS inbound traffic"
+  vpc_id      = var.vpc_id
+  ingress {
+    description = "TLS from VPC"
+    from_port   = 3306
+    to_port     = 3306
+    protocol    = "tcp"
+    cidr_blocks = ["108.0.0.0/16"]
+  }
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  tags = {
+    Name = "gokul_aws_security_group_terraform"
+  }
+}
+
+
+
+
+
+
