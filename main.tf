@@ -14,7 +14,7 @@ module "EC2" {
   public-subnets  = module.VPC.public-subnets
   private-subnets = module.VPC.private-subnets
   vpc_id          = module.VPC.vpc_id
-  sg-terraform    = [aws_security_group.gokul-sg-terraform.id]
+  sg-terraform    = [aws_security_group.sg-terraform.id]
   dbusername = module.RDS.dbusername
   dbpassword = module.RDS.dbpassword
   dbhost = module.RDS.dbhost
@@ -23,7 +23,7 @@ module "EC2" {
 
 
 //  provisioner "local-exec" {
-//    command = "echo endpoint of rds is ${self.endpoint} > /home/sgk/Desktop/projects/gokul-terraform/aws-IaC/output.txt"
+//    command = "echo endpoint of rds is ${self.endpoint} > /home/sgk/Desktop/projects/terraform/aws-IaC/output.txt"
 //  }
   
 

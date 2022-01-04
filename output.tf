@@ -18,7 +18,7 @@ output "vpc_cidr_block"{
 }
 
 output "sg-terraform" {
-    value = [aws_security_group.gokul-sg-terraform.id]
+    value = [aws_security_group.sg-terraform.id]
 }
 
 

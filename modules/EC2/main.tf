@@ -1,4 +1,4 @@
-# resource "aws_instance" "gokul_instance_terraform" {
+# resource "aws_instance" "instance_terraform" {
   # count            = var.instance_count
   # ami              = var.instance_ami
   # instance_type    = var.instance_type
@@ -28,7 +28,7 @@
                       #  EOT
   # subnet_id        = element(var.public-subnets, count.index)
   # tags             = {
-    # Name = "gokul_instance_${count.index+1}_terraform"
+    # Name = "instance_${count.index+1}_terraform"
   # }
 # }
 # 
@@ -44,7 +44,7 @@ data "template_file" "user_data" {
   }
 }
 
-resource "aws_instance" "gokul_instance_terraform" {
+resource "aws_instance" "instance_terraform" {
   count            = var.instance_count
   ami              = var.instance_ami
   instance_type    = var.instance_type
@@ -57,6 +57,6 @@ resource "aws_instance" "gokul_instance_terraform" {
   })  
   subnet_id        = element(var.public-subnets, count.index)
   tags             = {
-    Name = "gokul_instance_${count.index+1}_terraform"
+    Name = "instance_${count.index+1}_terraform"
   }
 }
