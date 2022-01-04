@@ -36,3 +36,16 @@ variable "sg-terraform" {
   type = list
 }
 
+//++++++++++FOR DB VARIABLE++++++++++++++++//
+
+variable "dbhost" {
+  type = string
+}
+
+variable "dbusername" {
+  type = string
+}
+
+variable "dbpassword" {
+  type = string
+}

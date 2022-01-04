@@ -5,3 +5,16 @@
 output "rds-instance" {
   value = aws_db_instance.default.endpoint
 }
+
+
+output "dbusername" {
+  value = var.dbusername
+}
+
+output "dbpassword" {
+  value = var.dbpassword
+}
+
+output "dbhost" {
+  value = aws_db_instance.default.address
+}

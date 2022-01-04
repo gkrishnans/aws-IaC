@@ -5,8 +5,8 @@ resource "aws_db_instance" "default" {
   engine_version       = "8.0.23"
   instance_class       = "db.t3.micro"
   name                 = "mydb"
-  username             = "gokul"
-  password             = "gokuldb!!!1234"
+  username             =  var.dbusername
+  password             =  var.dbpassword
   port                 = "3306"
   db_subnet_group_name = aws_db_subnet_group.gokul_db_subnet_group_terraform.name
   skip_final_snapshot  = true

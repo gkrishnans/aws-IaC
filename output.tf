@@ -33,3 +33,18 @@ output "loadbalancer-dns-name" {
 output "rds-instance" {
   value = module.RDS.rds-instance
 }
+
+
+//+++++++++++++++++++DB OUTPUT++++++++++++++++++++++//
+
+output "dbusername" {
+  value = module.RDS.dbusername
+}
+
+output "dbpassword" {
+  value = module.RDS.dbpassword
+}
+
+output "dbhost" {
+  value = module.RDS.dbhost
+}

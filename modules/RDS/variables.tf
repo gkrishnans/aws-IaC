@@ -6,3 +6,11 @@ variable "vpc_id" {
 variable "private-subnets" {
   type = list
 }
+
+variable "dbusername" {
+  default = "root"
+}
+
+variable "dbpassword" {
+  default = "rootroot"
+}
